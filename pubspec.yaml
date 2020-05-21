@@ -1,0 +1,23 @@
+name: flutter_tetris
+description: Flutter project for Fuchsia OS
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  overlay_support: ^0.0.4
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/material.png
+    - assets/alipay.jpg
+    - assets/wechat.png

@@ -1,0 +1,45 @@
+# Copyright 2019 The Fuchsia Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//topaz/runtime/flutter_runner/flutter_app.gni")
+
+flutter_app("flutter_tetris") {
+  disable_analysis = true
+  manifest = "pubspec.yaml"
+
+  main_dart = "lib/main.dart"
+  sources = [
+    "gamer/block.dart",
+    "gamer/gamer.dart",
+    "gamer/keyboard.dart",
+    "generated/i18n.dart",
+    "material/briks.dart",
+    "material/images.dart",
+    "material/material.dart",
+    "panel/controller.dart",
+    "panel/page_land.dart",
+    "panel/page_portrait.dart",
+    "panel/player_panel.dart",
+    "panel/screen.dart",
+    "panel/status_panel.dart",
+  ]
+
+  meta = [
+    {
+      path = rebase_path("meta/flutter_tetris.cmx")
+      dest = "flutter_tetris.cmx"
+    },
+  ]
+
+  deps = [
+    # flutter common
+    "//third_party/dart-pkg/git/flutter/packages/flutter",
+    "//topaz/public/dart/fuchsia_scenic_flutter",
+
+    # for i18n
+    "//third_party/dart-pkg/git/flutter/packages/flutter_localizations",
+    "//third_party/dart/third_party/pkg/intl",
+    "//topaz/public/dart/fuchsia_internationalization_flutter",
+  ]
+}
